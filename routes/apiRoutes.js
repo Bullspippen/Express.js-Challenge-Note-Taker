@@ -1,17 +1,29 @@
 const router = require('express').Router()
 const notes = require('../db/notes')
 
-router.get("/notes", (req, res) => {
-    notes.getAllNotes().then((notes) => {
-        return res.json(notes)
-    })
-    .catch((err) => res.status(500).json(err))
-})
+// GET all notes
+router.get('/notes', (req, res) => {
+    notes
+        .getAllNotes()
+        .then((notes) => res.json(notes))
+        .catch((err) => res.status(500).json(err));
+});
 
-router.post()
-router.delete()
+// POST a note
+router.post('/notes', (req, res) => {
+    const newNote = { id: uuid(), title: req.body.title, text: req.body.text };
+    notes
+      .addNote(newNote)
+      .then((note) => res.json(note))
+      .catch((err) => res.status(500).json(err));
+  });
 
-module.exports = router
+// DELETE a note
+router.delete('/notes/:id', (req, res) => {
+    notes
+      .deleteNoteById(req.params.id)
+      .then(() => res.json({ ok: true }))
+      .catch((err) => res.status(500).json(err));
+  });
 
-// adding a note
-// removing a note
+module.exports = router;
