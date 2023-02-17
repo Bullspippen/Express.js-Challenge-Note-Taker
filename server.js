@@ -12,10 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // API Routes
-app.use('/api', apiRoutes);
+app.use('/api', api);
 
 // HTML Routes
-app.use('/', htmlRoutes)
+app.use('/', html)
 
 
 app.listen(PORT, () =>
