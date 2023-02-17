@@ -26,4 +26,4 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 
 
-Check out this Link to the Chrome Extension: [The River Runs Wild](https://drive.google.com/file/d/1ztE8wgwNXkY3IfjfucJJRZhAVMFHkR_V/view)
+Check out this Link to the Deployed Application: [Live Site](https://peaceful-plains-89085.herokuapp.com/)
