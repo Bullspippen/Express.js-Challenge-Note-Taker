@@ -9,10 +9,14 @@ const app = express();
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', api);
-app.use('/', html)
-
 app.use(express.static('public'));
+
+// API Routes
+app.use('/api', apiRoutes);
+
+// HTML Routes
+app.use('/', htmlRoutes)
+
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
